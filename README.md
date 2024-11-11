@@ -41,4 +41,4 @@ python app.py
 The server will start on `http://localhost:5000`
 
 ## Documentation
-For detailled documentation, please visit '/' url on the server.
+For detailled documentation, please visit `/` url on the server.

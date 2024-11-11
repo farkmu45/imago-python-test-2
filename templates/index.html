@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>detikcom Search API Documentation</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                max-width: 800px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+
+            .endpoint {
+                background-color: #f4f4f4;
+                padding: 15px;
+                border-radius: 5px;
+                margin: 10px 0;
+            }
+
+            .code {
+                background-color: #272822;
+                color: #f8f8f2;
+                padding: 15px;
+                border-radius: 5px;
+                overflow-x: auto;
+            }
+
+            .param {
+                margin: 10px 0;
+            }
+
+            .param-name {
+                font-weight: bold;
+                color: #2a6bb6;
+            }
+
+            .example {
+                margin: 20px 0;
+            }
+
+            h2 {
+                color: #333;
+                border-bottom: 2px solid #eee;
+                padding-bottom: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>detikcom Search API Documentation</h1>
+
+        <h2>Search Endpoint</h2>
+        <div class="endpoint">
+            <code>GET /search</code>
+        </div>
+
+        <h2>Parameters</h2>
+        <div class="param">
+            <span class="param-name">q</span> (required)
+            <p>The search query to look for on detik.com</p>
+        </div>
+        <div class="param">
+            <span class="param-name">pages</span> (optional, default: 3)
+            <p>Number of pages to scrape (min: 1, max: 10)</p>
+        </div>
+
+        <h2>Example Usage</h2>
+        <div class="example">
+            <p>Basic search:</p>
+            <div class="code">
+                <code>GET /search?q=teknologi</code>
+            </div>
+
+            <p>Search with custom page count:</p>
+            <div class="code">
+                <code>GET /search?q=teknologi&pages=2</code>
+            </div>
+        </div>
+
+        <h2>Response Format</h2>
+        <p>Success Response (200 OK):</p>
+        <div class="code">
+            <pre>{
+    "status": "success",
+    "query": "teknologi",
+    "total_results": 20,
+    "results": [
+        {
+            "title": "Article Title",
+            "image_url": "https://example.com/image.jpg",
+            "body_text": "Article preview text...",
+            "publication_time": "2024-03-10T12:00:00",
+        },
+        ...
+    ]
+}</pre>
+        </div>
+
+        <p>Error Response (400/500):</p>
+        <div class="code">
+            <pre>{
+    "status": "error",
+    "message": "Error description"
+}</pre>
+        </div>
+
+        <h2>Try It Now</h2>
+        <p>Click the links below to test the API:</p>
+        <ul>
+            <li><a href="/search?q=teknologi" target="_blank">Search for "teknologi"</a></li>
+            <li><a href="/search?q=startup&pages=2" target="_blank">Search for "startup" (2 pages)</a></li>
+        </ul>
+    </body>
+
+</html>
